@@ -3,9 +3,9 @@ import xmltodict
 # abrir e ler o arquivo
 
 def ler_xml_danfe(nota):
-    with open(nota, 'rb') as arquivo:
+    with open('NFs Finais/DANFEBrota.xml', 'rb') as arquivo:
         documento = xmltodict.parse(arquivo)
-    # print(documento)
+    print(documento)
     dic_notafiscal = documento['nfeProc']['NFe']['infNFe']
 
     valor_total = dic_notafiscal['total']['ICMSTot']['vNF']
