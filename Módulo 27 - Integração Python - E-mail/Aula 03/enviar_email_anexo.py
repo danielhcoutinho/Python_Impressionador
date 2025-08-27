@@ -1,3 +1,0 @@
-# SMTP
-
-import smtplib
