@@ -27,4 +27,6 @@ for email in lista_emails:
         print(email.Body)
         for anexo in anexos: #para cada anexo
             print(anexo.FileName) #printa o nome do anexo
+            caminho_codigo = os.getcwd() #caminho ate o arquivo do nosso codigo
+            caminho_anexo_salvar = os.path.join(caminho_codigo, anexo.filename) #salva o anexo no caminho passaod entre () que é a junção do caminho do codigo com o nome de cada arquivo
 print("Fim do código")
