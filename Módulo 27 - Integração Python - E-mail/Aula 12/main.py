@@ -4,7 +4,7 @@
 
 # - Biblioteca (sendgrid)
 
-chave_api_sendgrid = "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"
+chave_api_sendgrid = #"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"
 
 from sendgrid import SendGridAPIClient #o que loga a nosa conta no twilio
 from sendgrid.helpers.mail import Mail # o que cria nosso email
