@@ -6,13 +6,14 @@ Session = sessionmaker(bind=db)
 session = Session()
 
 
-Base = declarative_base()
+Base = declarative_base() #nossa base do banco de dados
 
 # as tabelas
 class Usuario(Base):
     __tablename__ = "usuarios"
 
-    id = Column("id", Integer, primary_key=True, autoincrement=True)
+    id = Column("id", Integer, primary_key=True, autoincrement=True) #cria a coluna id com numeor inteiro e faz para cada classe seja chave primeira e sempre que criar um usuario ele auto incrementa o id automaticamente (aumenta)
+
     nome = Column("nome", String)
     email = Column("email", String)
     senha = Column("senha", String)
@@ -45,26 +46,26 @@ Base.metadata.create_all(bind=db)
 # CRUD
 
 # C - Create
-# usuario = Usuario(nome="Lira2", email="qlqcoisa2@email.com", senha="123123")
-# session.add(usuario)
-# session.commit()
+usuario = Usuario(nome="Lira2", email="qlqcoisa2@email.com", senha="123123") #cria nas colunas passadas e na tabela
+session.add(usuario) #add a tabela
+session.commit() #comita o cod
 
 # R - READ
-# lista_usuarios = session.query(Usuario).all()
-# usuario_lira2 = session.query(Usuario).filter_by(email="qlqcoisa2@email.com").first()
-# print(usuario_lira2) 
-# print(usuario_lira2.nome) 
-# print(usuario_lira2.email) 
+lista_usuarios = session.query(Usuario).all() #busca tudo da tabela usuario
+usuario_lira2 = session.query(Usuario).filter_by(email="qlqcoisa2@email.com").first() #busca apenas o email passado no filtro e apenas o primeiro
+print(usuario_lira2) 
+print(usuario_lira2.nome) 
+print(usuario_lira2.email) 
 
-# livro = Livro(titulo="Nome do Vento", qtde_paginas=1000, dono=usuario_lira.id)
-# session.add(livro)
-# session.commit()
+#livro = Livro(titulo="Nome do Vento", qtde_paginas=1000, dono=usuario_lira2.id)
+#session.add(livro)
+#session.commit()
 
 # U - Update
-# usuario_lira.nome = "Joao Lira"
-# session.add(usuario_lira)
-# session.commit()
+usuario_lira2.nome = "Joao Lira"
+session.add(usuario_lira2)
+session.commit()
 
 # D - Delete
-# session.delete(usuario_lira2)
-# session.commit()
+session.delete(usuario_lira2)
+session.commit()
